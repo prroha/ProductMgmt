@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Product Management</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" />
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
+    
+    <link href="/public/stylesheets/style.css" rel="stylesheet">
+</head>
+<body>
+<main>
+    <div class="bg-white">
+        <div class="bg-gray-100">
+            <div class="py-8">
+                <div class="mx-auto max-w-2xl text-center">
+                    <h2 class="text-4xl font-extrabold text-gray-800">Product Management</h2>
+                </div>
+            </div>
+            </div>
+        </div>
+
+    <div class="mx-auto max-w-2xl px-4 py-12 sm:px-6 sm:py-8 lg:max-w-7xl lg:px-8">
+        <div class="py-8">
+            <button id="createFormButton" class="bg-blue-500 text-white px-4 py-2 rounded mt-4 mx-auto block">Add a Product</button>
+        </div>
+        <div id="createProductForm" class="hidden">
+            <%- include("create-product.ejs") %>
+
+        </div>
+        <div id="productListContainer" class="mx-auto max-w-7xl py-6 sm:px-6 lg:px-8">
+            <%- include("product-list.ejs", {products}) %>
+        </div>
+
+        <div id="alert" class="fixed top-0 right-0 mt-10 mr-4 hidden">
+            <div id="alertMessage" class="px-4 py-2 rounded shadow">
+                <!-- Alert content will be inserted here -->
+            </div>
+        </div>
+
+    </div>
+</main>
+    <script src="/js/viewUtils.js"></script>
+<script>
+
+    document.addEventListener('DOMContentLoaded', function () {
+      const createFormButton = document.getElementById('createFormButton');
+      const productListContainer = document.getElementById('productListContainer');
+      const createForm = document.getElementById('createProductForm');
+      const cancelButton = document.getElementById('cancelButton');
+
+      createFormButton.addEventListener('click', function () {
+        productListContainer.classList.add('hidden');
+        createForm.classList.remove('hidden');
+      });
+    });
+</script>
+    <script src="/js/create-product.js"></script>
+    <script src="/js/product-list.js"></script>
+</body>
+</html>

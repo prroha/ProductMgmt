@@ -1,0 +1,14 @@
+version: "3"
+
+services:
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "5000:5000"
+    volumes:
+      - ./:/app
+      - /home/node/app/data  # Mount a volume for the SQLite data directory, This will ensure persistence after docker restart
+
+
