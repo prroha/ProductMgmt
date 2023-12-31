@@ -13,6 +13,7 @@ export default (app) => {
       if (err) {
         return res.status(500).json({ error: err.message })
       }
+      console.log(config)
       res.render('index', { products: products, API_URL: config.API_URL })
     })
   })
