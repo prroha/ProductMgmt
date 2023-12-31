@@ -1,29 +1,27 @@
-document.addEventListener("DOMContentLoaded", function () {
-  const createFormButton = document.getElementById("createFormButton");
-  const createForm = document.getElementById("createProductForm");
-  const productListContainer = document.getElementById("productListContainer");
-  const productForm = document.getElementById("productForm");
-  const saveProductButton = document.getElementById("saveButton");
-  const cancelButton = document.getElementById("cancelButton");
+document.addEventListener('DOMContentLoaded', function () {
+  const createFormButton = document.getElementById('createFormButton')
+  const createForm = document.getElementById('createProductForm')
+  const productListContainer = document.getElementById('productListContainer')
+  const saveProductButton = document.getElementById('saveButton')
+  const cancelButton = document.getElementById('cancelButton')
 
-  createFormButton.addEventListener("click", function () {
-    productListContainer.classList.add("hidden");
-    createForm.classList.remove("hidden");
-  });
+  createFormButton.addEventListener('click', function () {
+    productListContainer.classList.add('hidden')
+    createForm.classList.remove('hidden')
+  })
 
-  cancelButton.addEventListener("click", function () {
-    //productListContainer.classList.remove('hidden');
-    createForm.classList.add("hidden");
-    location.reload();
-  });
+  cancelButton.addEventListener('click', function () {
+    createForm.classList.add('hidden')
+    location.reload()
+  })
 
-  saveProductButton.addEventListener("click", function () {
-    const productName = document.getElementById("productName").value;
-    const productPrice = document.getElementById("productPrice").value;
-    const productCategory = document.getElementById("productCategory").value;
-    const productDescription = document.getElementById("productDescription")
-      .value;
-    const productImgUrl = document.getElementById("productImage").value;
+  saveProductButton.addEventListener('click', async function () {
+    const productName = document.getElementById('productName').value
+    const productPrice = document.getElementById('productPrice').value
+    const productCategory = document.getElementById('productCategory').value
+    const productDescription = document.getElementById('productDescription')
+      .value
+    const productImgUrl = document.getElementById('productImage').value
 
     const data = {
       name: productName,
@@ -31,35 +29,32 @@ document.addEventListener("DOMContentLoaded", function () {
       category: productCategory,
       description: productDescription,
       imgurl: productImgUrl,
-    };
-    saveProductData(data);
-  });
+    }
+    await saveProductData(data)
+  })
 
   async function saveProductData(data) {
-    const createFormButton = document.getElementById("createFormButton");
-    const createForm = document.getElementById("createProductForm");
+    const createForm = document.getElementById('createProductForm')
     try {
       const response = await fetch(`${BASE_URL}/products`, {
-        method: "POST",
+        method: 'POST',
         headers: {
-          "Content-Type": "application/json",
+          'Content-Type': 'application/json',
         },
         body: JSON.stringify(data),
-      });
-
-      const res = await response.json();
+      })
+      const res = await response.json()
       if (!response.ok) {
-        console.log(res);
-        showAlert(res.type, res.error);
-        createForm.classList.add("hidden");
-        createForm.classList.remove("hidden");
+        showAlert(res.type, res.error)
+        createForm.classList.add('hidden')
+        createForm.classList.remove('hidden')
       } else {
-        showAlert(res.status, res.result?.message);
-        location.reload();
+        showAlert(res.status, res.result?.message)
+        location.reload()
       }
     } catch (error) {
-      console.log(error);
-      throw error;
+      console.log(error)
+      //throw error;
     }
   }
-});
+})

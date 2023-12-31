@@ -1,12 +1,12 @@
 export default {
   development: {
-    host: "localhost",
+    host: 'localhost',
     port: 27017,
-    databaseName: "product_mgmt_sqlite",
-    databasePath: "data",
-    username: "",
-    password: "",
-    dialect: "sqlite",
+    databaseName: 'product_mgmt_sqlite',
+    databasePath: 'data',
+    username: '',
+    password: '',
+    dialect: 'sqlite',
   },
   production: {
     host: process.env.SQLITE_HOST,
@@ -16,10 +16,10 @@ export default {
     password: process.env.SQLITE_PASSWORD,
   },
   test: {
-    host: "localhost",
+    host: 'localhost',
     port: 27017,
-    databaseName: "product_test",
-    username: "",
-    password: "",
+    databaseName: 'product_test',
+    username: '',
+    password: '',
   },
-};
+}

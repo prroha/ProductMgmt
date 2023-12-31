@@ -3,7 +3,7 @@ const Product = {
   password: { type: String, required: true },
   token: [{ type: String }],
   resetToken: [{ type: String }],
-  name: "",
-};
+  name: '',
+}
 
-export default Product;
+export default Product
