@@ -91,8 +91,8 @@ function showAlert(type, message) {
 
   // Set alert type-specific classes
   alertDiv.classList.remove("hidden");
-  alertDiv.classList.remove("bg-red-500", "bg-green-500");
-  alertDiv.classList.add(type === "success" ? "bg-green-500" : "bg-red-500");
+  alertMessageDiv.classList.remove("bg-red-500", "bg-green-500");
+  alertMessageDiv.classList.add(type === "success" ? "bg-green-500" : "bg-red-500");
 
   // Set alert message
   alertMessageDiv.innerText = message;

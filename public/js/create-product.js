@@ -54,8 +54,8 @@ document.addEventListener("DOMContentLoaded", function () {
         createForm.classList.add("hidden");
         createForm.classList.remove("hidden");
       } else {
+        showAlert(res.status, res.result?.message);
         location.reload();
-        console.log(res);
       }
     } catch (error) {
       console.log(error);
