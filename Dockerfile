@@ -1,7 +1,6 @@
 # Use a specific version of the node image
 FROM node:14-alpine
 
-CMD [ "npm", "run", "prettier:fix" ]
 # Create a non-root user
 RUN addgroup -S projectuser && adduser -S -G projectuser projectuser
 

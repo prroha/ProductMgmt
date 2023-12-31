@@ -32,9 +32,9 @@ TEXT
         dbConnect.get("SELECT COUNT(*) FROM products", (err, count) => {
           if (err) {
             console.log("Error checking table", err);
-          } else if (count['COUNT(*)'] === 0) {
+          } else if (count["COUNT(*)"] === 0) {
             // Prepare and execute statements with parameters
-            console.log("The count is zero")
+            console.log("The count is zero");
             const insertStmt = dbConnect.prepare(
               "INSERT INTO products (name, description, price, category, imgurl) VALUES (?, ?, ?, ?, ?)"
             );
@@ -69,16 +69,15 @@ TEXT
             // ... continue with remaining inserts using insertStmt
             // Close the prepared statement when finished
             insertStmt.finalize();
-          }
-          else{
-            console.log("ALready products in the table ", count)
+          } else {
+            console.log("ALready products in the table ", count);
           }
         });
       }
     }
   );
-} catch (e){
-  console.error(e)
+} catch (e) {
+  console.error(e);
 }
 
 // dbConnect.close();

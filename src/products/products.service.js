@@ -27,30 +27,32 @@ export function updateProduct(id, params, callback) {
   const updateValues = [];
 
   if (name !== undefined) {
-    updateFields.push('name = ?');
+    updateFields.push("name = ?");
     updateValues.push(name);
   }
 
   if (description !== undefined) {
-    updateFields.push('description = ?');
+    updateFields.push("description = ?");
     updateValues.push(description);
   }
 
   if (price !== undefined) {
-    updateFields.push('price = ?');
+    updateFields.push("price = ?");
     updateValues.push(price);
   }
 
   if (category !== undefined) {
-    updateFields.push('category = ?');
+    updateFields.push("category = ?");
     updateValues.push(category);
   }
 
   if (imgurl !== undefined) {
-    updateFields.push('imgurl = ?');
+    updateFields.push("imgurl = ?");
     updateValues.push(imgurl);
   }
-  const updateQuery = `UPDATE products SET ${updateFields.join(', ')} WHERE id = ?`;
+  const updateQuery = `UPDATE products SET ${updateFields.join(
+    ", "
+  )} WHERE id = ?`;
   const updateParams = [...updateValues, id];
 
   dbConnect.run(updateQuery, updateParams, (err) => {

@@ -9,6 +9,5 @@ services:
       - "5000:5000"
     volumes:
       - ./:/app
-      - /home/node/app/data  # Mount a volume for the SQLite data directory, This will ensure persistence after docker restart
-
+      - /home/node/app/data # Mount a volume for the SQLite data directory, This will ensure persistence after docker restart
 
