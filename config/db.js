@@ -11,9 +11,10 @@ export default {
   production: {
     host: process.env.SQLITE_HOST,
     port: process.env.SQLITE_PORT,
-    databaseName: process.env.SQLITE_DB,
+    databaseName: process.env.SQLITE_DB || 'product_mgmt_sqlite',
     username: process.env.SQLITE_USERNAME,
     password: process.env.SQLITE_PASSWORD,
+    dialect: process.env.DB_DIALECT || 'sqlite',
   },
   test: {
     host: 'localhost',

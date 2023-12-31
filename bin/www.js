@@ -29,6 +29,7 @@ var server = http.createServer(app)
 
 server.listen(port, () => {
   // eslint-disable-next-line no-console
+  console.log(config)
   console.log(`Server started at ${port}`)
   console.log(`Environment: ${process.env.NODE_ENV}`)
 })
