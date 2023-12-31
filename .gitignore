@@ -3,6 +3,7 @@ node_modules
 /dist
 /logs
 ./logs
+/data/product_mgmt_sqlite
 
 # local env files
 .env.local
