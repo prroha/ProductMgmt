@@ -36,7 +36,7 @@ document.addEventListener('DOMContentLoaded', function () {
   async function saveProductData(data) {
     const createForm = document.getElementById('createProductForm')
     try {
-      const response = await fetch(`${BASE_URL}/products`, {
+      const response = await fetch(`${window.API_URL}/products`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

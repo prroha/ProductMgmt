@@ -1,3 +1,4 @@
+const BASE_URL = window.API_URL
 document.addEventListener('DOMContentLoaded', function () {
   const editableContents = document.querySelectorAll('.editable-content')
 

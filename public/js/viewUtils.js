@@ -1,5 +1,3 @@
-const BASE_URL = 'http://localhost:5000'
-
 function showAlert(type, message) {
   const alertDiv = document.getElementById('alert')
   const alertMessageDiv = document.getElementById('alertMessage')

@@ -2,6 +2,7 @@ import productsRoutes from './products.routes.js'
 
 import path, { dirname } from 'path'
 import { fileURLToPath } from 'url'
+import config from '../config/index.js'
 import * as productService from '../src/products/products.service.js'
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = dirname(__filename)
@@ -12,7 +13,7 @@ export default (app) => {
       if (err) {
         return res.status(500).json({ error: err.message })
       }
-      res.render('index', { products: products })
+      res.render('index', { products: products, API_URL: config.API_URL })
     })
   })
 
