@@ -4,6 +4,7 @@ FROM node:14-alpine
 # Create a non-root user
 RUN addgroup -S projectuser && adduser -S -G projectuser projectuser
 
+RUN mkdir /home/node/app
 # Set the working directory
 WORKDIR /home/node/app
 
