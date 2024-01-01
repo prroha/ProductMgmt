@@ -4,7 +4,9 @@ FROM node:14-alpine
 # Create a non-root user
 RUN addgroup -S projectuser && adduser -S -G projectuser projectuser
 
-RUN mkdir /home/node/app
+# Create the data directory
+RUN mkdir -p /home/node/app/data && chown -R projectuser:projectuser /home/node/app/data
+
 # Set the working directory
 WORKDIR /home/node/app
 
@@ -26,7 +28,7 @@ COPY --chown=projectuser:projectuser . .
 
 # Set permissions for the data directory
 # This step will only be executed if files other than package files change
-RUN chown -R projectuser:projectuser /home/node/app/data
+#RUN chown -R projectuser:projectuser /home/node/app/data
 RUN chmod 755 /home/node/app/data/product_mgmt_sqlite
 
 # Expose the required port
